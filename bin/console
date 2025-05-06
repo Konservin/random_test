@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use Random\Command\GenerateRandomCommand;
+
+$app = new Application();
+
+$app->add(new GenerateRandomCommand());
+
+try {
+    $app->run();
+} catch (Exception $e) {
+
+}

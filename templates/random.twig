@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Generator</title>
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light p-4">
+<div class="container">
+    <h1 class="mb-4">Random Generator</h1>
+
+    <form method="post" class="mb-4">
+        <div class="row g-3 align-items-end">
+            <div class="col-md-3">
+                <label for="length" class="form-label">String Length</label>
+                <input type="number" name="length" id="length" class="form-control" value="{{ length|default(14) }}" min="1" max="{{ max_length }}">
+            </div>
+            <div class="col-md-3">
+                <label for="arr_length" class="form-label">Array Size</label>
+                <input type="number" name="arr_length" id="arr_length" class="form-control" value="{{ arr_length|default(3) }}" min="1" max="{{ max_arr_length }}">
+            </div>
+            <div class="col-md-auto">
+                <button type="submit" class="btn btn-primary">Generate</button>
+            </div>
+        </div>
+    </form>
+    {% if error %}
+        <div class="alert alert-danger mb-4">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <div class="row g-2 align-items-end">
+        {% if string %}
+            <div class="col-md-4">
+                <h4>Random String:</h4>
+                <div class="alert alert-secondary">{{ string }}</div>
+            </div>
+        {% endif %}
+        {% if encoded_string %}
+            <div class="col-md-4">
+                <h4>Encoded Random String:</h4>
+                <div class="alert alert-secondary">{{ encoded_string }}</div>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="row g-2 align-items-end">
+        {% if array %}
+            <div class="col-md-4">
+                <h4>Random Array:</h4>
+                <ul class="list-group">
+                    {% for item in array %}
+                        <li class="list-group-item">{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        {% if encoded_array %}
+            <div class="col-md-4">
+                <h4>Encoded Random Array:</h4>
+                <ul class="list-group">
+                    {% for item in encoded_array %}
+                        <li class="list-group-item">{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>
