@@ -32,9 +32,9 @@ composer install
 ```
 
 ## Usage
-bin/console random [length] [count]
+php bin/console random [length] [count]
 ## Example
-bin/console random 20 5
+php bin/console random 20 5
 
 ## Usage (web)
 php -S localhost:8000 -t public
