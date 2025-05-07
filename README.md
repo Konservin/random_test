@@ -35,6 +35,7 @@ composer install
 php bin/console random [length] [count]
 ## Example
 php bin/console random
+
 php bin/console random 20 5
 
 ## Usage (web)
